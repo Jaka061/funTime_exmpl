@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">ExampleMvvm</string>
+    <string name="lastname">Email</string>
+    <string name="name">Name</string>
+    <string name="password">Password</string>
+    <string name="authorization">Authorization</string>
+    <string name="sign_in">Sign in</string>
+    <string name="regist">Sign up</string>
+    <string name="gender">gender (-M -F)</string>
+</resources>
