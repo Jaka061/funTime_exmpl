@@ -13,8 +13,7 @@ open class BaseFragment<viewModel: ViewModel, viewBinding: ViewBinding>(
     private val vmClass: Class<viewModel>,
     inline val bindingCreator: (inflater: LayoutInflater) -> viewBinding
 ): Fragment() {
-
-    protected lateinit var vm: viewModel
+    protected lateinit var viewModel: viewModel
 
     private var _binding: viewBinding? = null
     protected val binding: viewBinding
@@ -22,7 +21,7 @@ open class BaseFragment<viewModel: ViewModel, viewBinding: ViewBinding>(
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        vm = ViewModelProvider(this)[vmClass]
+        viewModel = ViewModelProvider(this)[vmClass]
     }
 
     override fun onCreateView(

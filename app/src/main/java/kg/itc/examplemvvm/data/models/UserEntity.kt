@@ -6,8 +6,10 @@ import androidx.room.PrimaryKey
 @Entity
 data class UserEntity(
     @PrimaryKey
-    var id: Long,
+    var objectId: String,
     var name: String,
     var surname: String,
-
+    var email:String,
+    var age: Int,
+    var password:String
 )

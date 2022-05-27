@@ -3,23 +3,22 @@ package kg.itc.examplemvvm.domain.use_cases
 import io.reactivex.Single
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
-import kg.itc.examplemvvm.data.models.UserDto
-import kg.itc.examplemvvm.data.repo.UserRepo
-import kg.itc.examplemvvm.domain.models.User
-import kg.itc.examplemvvm.extensions.toUser
-import kg.itc.examplemvvm.extensions.toUserEntity
+import kg.itc.examplemvvm.data.models.CompanyEntity
+import kg.itc.examplemvvm.data.repo.CompanyRepo
+import kg.itc.examplemvvm.extensions.toCompanyEntity
 import javax.inject.Inject
 
 class GetUserUseCase @Inject constructor(
-    private val userRepo: UserRepo
-) {
+    private val companyRepo: CompanyRepo) {
 
-    operator fun invoke(): Single<List<User>> {
-        return userRepo.getUserFromApi()
+    operator fun invoke(): Single<List<CompanyEntity>> {
+        return companyRepo.getCompanyFromApi()
             .subscribeOn(Schedulers.io())
             .map {
-                userRepo.saveUsersToDb(it.map { it.toUserEntity() })
-                it.map { it.toUser() }
+                companyRepo.saveCompanyToDb(
+                    it.map {
+                    it.toCompanyEntity() })
+                it.map { it.toCompanyEntity() }
             }
             .observeOn(AndroidSchedulers.mainThread())
 
