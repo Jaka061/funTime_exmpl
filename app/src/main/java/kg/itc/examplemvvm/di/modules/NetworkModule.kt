@@ -20,11 +20,9 @@ import javax.inject.Singleton
 class NetworkModule {
 
     @Provides
-    @kg.itc.examplemvvm.di.annotations.UserApi
     fun provideUserApi(retrofit: Retrofit): UserApi = retrofit.create(UserApi::class.java)
 
     @Provides
-    @kg.itc.examplemvvm.di.annotations.CompanyApi
     fun provideCompanyApi(retrofit: Retrofit): CompanyApi = retrofit.create(CompanyApi::class.java)
 
 
