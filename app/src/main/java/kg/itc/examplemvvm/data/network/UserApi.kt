@@ -8,12 +8,12 @@ import retrofit2.http.Path
 
 interface UserApi {
 
-    @GET("/api/data/User")
+    @GET("data/User")
     fun getUsers(): Single<List<UserDto>>
 
-    @GET("/api/data/User/{objectId}")
+    @GET("data/User/{objectId}")
     fun getUserById(@Path("objectId") objectId:String): Single<List<UserDto>>
 
-    @POST("/api/data/User")
+    @POST("data/User")
     fun insertUser(userDto: UserDto)
 }

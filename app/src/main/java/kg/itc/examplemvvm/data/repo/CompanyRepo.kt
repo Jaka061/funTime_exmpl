@@ -12,6 +12,7 @@ class CompanyRepo @Inject constructor(
     private var companyDao: CompanyDao,
     private var companyApi: CompanyApi
 ) {
+    fun getCompanyFromDB() = companyDao.getAll()
 
     fun getCompanyFromApi() = companyApi.getCompany()
 
@@ -21,6 +22,5 @@ class CompanyRepo @Inject constructor(
     }
 
     fun saveCompanyToDb(company: List<CompanyEntity>) = companyDao.insertCompany(company)
-
 
 }

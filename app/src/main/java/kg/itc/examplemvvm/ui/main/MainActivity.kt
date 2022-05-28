@@ -8,6 +8,7 @@ import dagger.hilt.android.AndroidEntryPoint
 import kg.itc.examplemvvm.R
 import kg.itc.examplemvvm.databinding.ActivityMainBinding
 import kg.itc.examplemvvm.ui.OnClick
+import kg.itc.examplemvvm.ui.funTime.company.EntertainmentsFragment
 import kg.itc.examplemvvm.ui.funTime.company.SearchingFragment
 import kg.itc.examplemvvm.ui.funTime.users.UserInfoFragment
 
@@ -22,8 +23,8 @@ class MainActivity: AppCompatActivity(),OnClick {
         setContentView(binding.root)
 
         if (savedInstanceState == null) {
-            openFragment(EntertainmentsFragment(), false)
-            binding.btnNav.selectedItemId = R.id.home
+            openFragment(MainFragment(), false)
+
         }
 
         binding.run {
@@ -47,9 +48,9 @@ class MainActivity: AppCompatActivity(),OnClick {
         }
     }
 
-
     override fun openFragment(fragment: Fragment, addToBackStack: Boolean?) {
-        supportFragmentManager.beginTransaction().replace(R.id.container1,fragment)
+        supportFragmentManager.beginTransaction()
+            .replace(R.id.container1,fragment)
             .apply {
                 if(addToBackStack == true) {
                     addToBackStack("")

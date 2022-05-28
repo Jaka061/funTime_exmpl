@@ -8,12 +8,12 @@ import retrofit2.http.Path
 
 interface CompanyApi {
 
-    @GET("/api/data/Entertainment")
+    @GET("data/Entertainment")
     fun getCompany(): Single<List<CompanyDto>>
 
-    @GET("/api/data/Entertainment/{objectId}")
+    @GET("data/Entertainment/{objectId}")
     fun getCompanyById(@Path("objectId") objectId:String): Single<List<CompanyDto>>
 
-    @POST("/api/data/Entertainment")
+    @POST("data/Entertainment")
     fun insertCompany(companyDto: CompanyDto)
 }
