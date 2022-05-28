@@ -2,9 +2,7 @@ package kg.itc.examplemvvm.ui.main
 
 import android.content.Context
 import android.os.Bundle
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import dagger.hilt.android.AndroidEntryPoint
 import kg.itc.examplemvvm.R
@@ -12,6 +10,7 @@ import kg.itc.examplemvvm.databinding.FragmentMainBinding
 import kg.itc.examplemvvm.ui.OnClick
 import kg.itc.examplemvvm.ui.base.BaseFragment
 import kg.itc.examplemvvm.ui.funTime.company.EntertainmentsFragment
+import kg.itc.examplemvvm.ui.funTime.company.TypesFragment
 
 @AndroidEntryPoint
 class MainFragment: BaseFragment<MainVM, FragmentMainBinding>

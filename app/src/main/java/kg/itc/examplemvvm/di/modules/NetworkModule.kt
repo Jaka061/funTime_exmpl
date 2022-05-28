@@ -53,7 +53,7 @@ class NetworkModule {
 
     private fun createRetrofit(httpClient: OkHttpClient): Retrofit {
         return Retrofit.Builder()
-            .baseUrl("https://todaycar.backendless.app/api/")
+            .baseUrl("https://todaycar.backendless.app/")
             .addConverterFactory(GsonConverterFactory.create())
             .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
             .client(httpClient)

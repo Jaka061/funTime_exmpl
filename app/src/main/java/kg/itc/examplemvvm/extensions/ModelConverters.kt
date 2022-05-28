@@ -1,11 +1,6 @@
 package kg.itc.examplemvvm.extensions
 
-import kg.itc.examplemvvm.data.models.CompanyDto
-import kg.itc.examplemvvm.data.models.CompanyEntity
-import kg.itc.examplemvvm.data.models.UserDto
-import kg.itc.examplemvvm.data.models.UserEntity
-import kg.itc.examplemvvm.domain.models.Company
-import kg.itc.examplemvvm.domain.models.User
+import kg.itc.examplemvvm.data.models.*
 
 fun UserDto.toUserEntity(): UserEntity {
     return UserEntity(
@@ -30,6 +25,15 @@ fun CompanyDto.toCompanyEntity(): CompanyEntity {
         number = this.number,
         instagram = this.instagram,
         address = this.address
+    )
+}
+
+fun TypesDto.toTypesEntity(): TypesEntity{
+    return TypesEntity(
+        objectId = this.objectId,
+        name = this.name,
+        img = this.img,
+        count = this.count
     )
 }
 

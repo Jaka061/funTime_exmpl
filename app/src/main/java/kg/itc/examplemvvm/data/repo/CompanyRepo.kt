@@ -1,6 +1,5 @@
 package kg.itc.examplemvvm.data.repo
 
-import io.reactivex.Scheduler
 import io.reactivex.Single
 import io.reactivex.schedulers.Schedulers
 import kg.itc.examplemvvm.data.models.CompanyEntity

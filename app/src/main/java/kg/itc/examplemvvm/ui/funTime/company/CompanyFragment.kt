@@ -14,8 +14,8 @@ import kg.itc.examplemvvm.ui.main.rv.CompanyAdapter
 import kg.itc.examplemvvm.ui.main.rv.EntertainmentAdapter
 
 @AndroidEntryPoint
-class CompanyFragment : BaseFragment<CompanyInfoVM,FragmentCompaniesBinding>
-    (CompanyInfoVM::class.java,{ FragmentCompaniesBinding.inflate(it) }),CompanyAdapter.Listener
+class CompanyFragment : BaseFragment<CompanyInfoVM,FragmentCompanyBinding>
+    (CompanyInfoVM::class.java,{ FragmentCompanyBinding.inflate(it) }),CompanyAdapter.Listener
 {
     private lateinit var listener : OnClick
     private val companyAdapter : CompanyAdapter = CompanyAdapter(this)
@@ -27,17 +27,10 @@ class CompanyFragment : BaseFragment<CompanyInfoVM,FragmentCompaniesBinding>
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        setupView()
         subscribeToLiveData()
 
     }
-    private fun setupView(){
-        with(binding){
-            Log.e("recycle company","Ok")
-            recyclerCompany.adapter = companyAdapter
-            recyclerCompany.layoutManager = LinearLayoutManager(activity)
-        }
-    }
+
     private fun subscribeToLiveData() {
         viewModel.companies.observe(viewLifecycleOwner) {
             companyAdapter.setData(it)
@@ -48,7 +41,7 @@ class CompanyFragment : BaseFragment<CompanyInfoVM,FragmentCompaniesBinding>
 
     override fun onClick(index: Int) {
         viewModel.companies.value?.get(index)?.let {
-            listener.openFragment(CompanyFragment(),true)
+            //listener.openFragment(CompanyFragment(),true)
         }
     }
 

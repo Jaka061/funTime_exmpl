@@ -1,5 +1,6 @@
 package kg.itc.examplemvvm.data.network
 
+import io.reactivex.Observable
 import io.reactivex.Single
 import kg.itc.examplemvvm.data.models.CompanyDto
 import retrofit2.http.GET
@@ -8,12 +9,12 @@ import retrofit2.http.Path
 
 interface CompanyApi {
 
-    @GET("data/Entertainment")
+    @GET("api/data/Entertainment")//data/Entertainment
     fun getCompany(): Single<List<CompanyDto>>
 
-    @GET("data/Entertainment/{objectId}")
+    @GET("api/data/Entertainment/{objectId}")
     fun getCompanyById(@Path("objectId") objectId:String): Single<List<CompanyDto>>
 
-    @POST("data/Entertainment")
+    @POST("api/data/Entertainment")
     fun insertCompany(companyDto: CompanyDto)
 }

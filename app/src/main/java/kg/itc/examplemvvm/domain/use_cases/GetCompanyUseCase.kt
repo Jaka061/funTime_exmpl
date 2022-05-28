@@ -1,5 +1,6 @@
 package kg.itc.examplemvvm.domain.use_cases
 
+import io.reactivex.Observable
 import io.reactivex.Single
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers

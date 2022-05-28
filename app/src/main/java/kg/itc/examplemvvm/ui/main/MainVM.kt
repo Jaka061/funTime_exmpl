@@ -10,7 +10,6 @@ import kg.itc.examplemvvm.ui.base.BaseVM
 import javax.inject.Inject
 
 @HiltViewModel
-class MainVM @Inject constructor(): BaseVM()
-{
+class MainVM @Inject constructor() : BaseVM() {
 
 }

@@ -10,7 +10,7 @@ import kg.itc.examplemvvm.ui.base.Event
 import javax.inject.Inject
 
 @HiltViewModel
-class CompaniesVM @Inject constructor(
+class TypesVM @Inject constructor(
     private val getCompanyUseCase: GetCompanyUseCase,
     private val getCompanyAsLiveDataUseCase: GetCompanyAsLiveDataUseCase):BaseVM() {
 
