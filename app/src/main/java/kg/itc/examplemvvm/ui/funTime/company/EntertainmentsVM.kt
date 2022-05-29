@@ -17,9 +17,8 @@ class EntertainmentsVM @Inject constructor(
     private val getCompanyAsLiveDataUseCase: GetCompanyAsLiveDataUseCase
 ) : BaseVM() {
 
-        private val _companies = MutableLiveData<List<CompanyEntity>>()
-        val companies : LiveData<List<CompanyEntity>>
-        get() = _companies
+        val companies : LiveData<List<CompanyEntity>> = getCompanyAsLiveDataUseCase()
+
 
         init {
             getCompany()
@@ -29,17 +28,12 @@ class EntertainmentsVM @Inject constructor(
             _event.value = Event.ShowLoading
             disposable.add(
                 getCompanyUseCase()
-                    .subscribe({
-                        try {
-                            _companies.value = it
-                            Log.d("all","${it}")
-
-                        }
-                        catch (e: Throwable) {
-                            val a = e
-                        }
-                    },
+                    .doOnTerminate {
+                         _event.value = Event.StopLoading
+                    }
+                    .subscribe({},
                     {
+                        handleError(it)
                         Log.d("cdc","cdcn")
                     })
 

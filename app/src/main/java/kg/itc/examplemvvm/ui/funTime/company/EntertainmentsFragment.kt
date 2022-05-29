@@ -21,8 +21,7 @@ class EntertainmentsFragment: BaseFragment<EntertainmentsVM,FragmentEntertainmen
 {
 
     private lateinit var listener : OnClick
-    private val entertainmentAdapter :
-            EntertainmentAdapter = EntertainmentAdapter(this)
+    private val entertainmentAdapter : EntertainmentAdapter = EntertainmentAdapter(this)
 
     override fun onAttach(context: Context) {
         super.onAttach(context)
@@ -31,13 +30,13 @@ class EntertainmentsFragment: BaseFragment<EntertainmentsVM,FragmentEntertainmen
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        setupView()
-        subscribeToLiveData()
-        viewModel.getCompany()
-
-
         val menu = requireActivity().findViewById<BottomNavigationView>(R.id.btnNav)
         menu.visibility = View.VISIBLE
+
+        setupView()
+        subscribeToLiveData()
+        //viewModel.getCompany()
+
     }
 
     private fun setupView(){
@@ -45,6 +44,7 @@ class EntertainmentsFragment: BaseFragment<EntertainmentsVM,FragmentEntertainmen
             Log.e("view","Ok ")
             recyclerEntertainment.adapter = entertainmentAdapter
             recyclerEntertainment.layoutManager = LinearLayoutManager(activity)
+            //viewModel.getCompany()
         }
     }
     private fun subscribeToLiveData() {

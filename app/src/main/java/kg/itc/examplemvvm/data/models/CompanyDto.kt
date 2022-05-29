@@ -11,4 +11,4 @@ data class CompanyDto (
     var instagram : String,
     var address : String,
     var number: String
-    )
+)

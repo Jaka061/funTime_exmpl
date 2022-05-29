@@ -5,6 +5,8 @@ import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
+import io.reactivex.internal.operators.maybe.MaybeToPublisher.instance
+import kg.itc.examplemvvm.App
 import kg.itc.examplemvvm.data.network.CompanyApi
 import kg.itc.examplemvvm.data.network.UserApi
 import okhttp3.OkHttpClient
@@ -24,7 +26,6 @@ class NetworkModule {
 
     @Provides
     fun provideCompanyApi(retrofit: Retrofit): CompanyApi = retrofit.create(CompanyApi::class.java)
-
 
     @Provides
     @Singleton
@@ -53,11 +54,15 @@ class NetworkModule {
 
     private fun createRetrofit(httpClient: OkHttpClient): Retrofit {
         return Retrofit.Builder()
-            .baseUrl("https://todaycar.backendless.app/")
+            .baseUrl("https://todaycar.backendless.app")
             .addConverterFactory(GsonConverterFactory.create())
             .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
             .client(httpClient)
             .build()
+    }
+    companion object {
+        private var mInstance: App? = null
+        val instance get() = mInstance!!
     }
 
 }

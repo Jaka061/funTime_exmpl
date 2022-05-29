@@ -1,5 +1,6 @@
 package kg.itc.examplemvvm.data.network
 
+import io.reactivex.Observable
 import io.reactivex.Single
 import kg.itc.examplemvvm.data.models.UserDto
 import retrofit2.http.GET
@@ -8,12 +9,12 @@ import retrofit2.http.Path
 
 interface UserApi {
 
-    @GET("api/data/User")
-    fun getUsers(): Single<List<UserDto>>
+    @GET("data/User")
+    fun getUsers(): Observable<List<UserDto>>
 
-    @GET("api/data/User/{objectId}")
+    @GET("data/User/{objectId}")
     fun getUserById(@Path("objectId") objectId:String): Single<List<UserDto>>
 
-    @POST("api/data/User")
+    @POST("data/User")
     fun insertUser(userDto: UserDto)
 }

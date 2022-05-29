@@ -4,7 +4,7 @@ import android.util.Log
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import kg.itc.examplemvvm.data.models.CompanyEntity
-import kg.itc.examplemvvm.ui.base.BaseEvent
+import kg.itc.examplemvvm.domain.models.Company
 
 class EntertainmentAdapter(private val listener: Listener) :
     RecyclerView.Adapter<EntertainmentVH>() {
